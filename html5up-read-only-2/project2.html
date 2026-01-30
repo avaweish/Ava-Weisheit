@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Beer Classification Decision Tree – Ava Weisheit</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body class="is-preload">
+
+    <!-- Sidebar Header (Right Sidebar) -->
+    <section id="header">
+      <header>
+        <span class="image avatar"><img src="images/avatar.JPG" alt="Ava Weisheit" /></span>
+        <h1 id="logo"><a href="#">Ava Weisheit</a></h1>
+        <p>Driven student looking for ways to use knowledge in the real world to derive important information</p>
+      </header>
+    </section>
+
+    <!-- Main Project Content -->
+    <div id="wrapper">
+      <div id="main">
+        <section id="one" class="container">
+          
+          <!-- Single Back to Portfolio Link -->
+          <p style="margin-bottom: 20px;">
+            <a href="index.html" style="text-decoration: none; font-weight: bold; color: #333;">← Back to Portfolio</a>
+          </p>
+
+          <header class="major">
+            <h2>Beer Classification Decision Tree</h2>
+            <p>Data analysis, model training, and performance evaluation using sensory beer attributes.</p>
+          </header>
+
+          <img src="images/beer.png" alt="Beer project image" style="width:100%; border-radius: 10px; margin-bottom: 20px;" />
+
+          <h3>Overview</h3>
+          <p>
+            This project explored how different <strong>sensory characteristics</strong> of beer—such as bitterness, sweetness, sourness, hoppiness, and maltiness—
+            can be used to <strong>predict beer styles</strong> using a decision tree classifier. The goal was to determine whether measurable taste features could
+            accurately distinguish beer types and to visualize model performance through a detailed decision tree, confusion matrix, and classification report.
+          </p>
+
+          <h3>My Role</h3>
+          <p>
+            I was responsible for <strong>data preprocessing, model training, and performance evaluation</strong>. 
+            I split the dataset into 70% training and 30% testing groups, trained multiple decision tree models at various depths, 
+            and plotted accuracy scores to identify the optimal model configuration. I selected a <strong>max depth of 5</strong> to balance performance and overfitting, 
+            then visualized the final tree using <code>plot_tree()</code> in Matplotlib. 
+            I also interpreted the decision rules, precision scores, and color-coded node accuracy to explain model behavior.
+          </p>
+
+          <h3>Key Findings</h3>
+          <p>
+            The decision tree revealed clear patterns in how sensory variables relate to beer classification. 
+            Styles like <strong>IPA</strong> and <strong>Sour</strong> were highly distinguishable, achieving precision scores of 0.66 and 0.79 respectively, 
+            while beers such as <strong>Lambic</strong> and <strong>Porter</strong> proved more difficult to classify. 
+            The confusion matrix showed strong diagonal values for easily separable styles but significant off-diagonal activity for overlapping ones, 
+            suggesting that sensory attributes alone may not capture the full complexity of beer differentiation. 
+            The classification report confirmed this, with an overall accuracy of 59% and an average F1-score of 0.57, 
+            indicating moderate predictive success and room for improvement with more advanced models or additional features.
+          </p>
+
+          <h3>Skills Demonstrated</h3>
+          <p>
+            Data Preprocessing • Model Training & Evaluation • Decision Tree Analysis • Data Visualization • Classification Metrics • Python (scikit-learn, Matplotlib)
+          </p>
+
+          <h3>Deliverables</h3>
+          <ul>
+            <li><a href="projects/DataMining/tree.png" target="_blank">Decision Tree Visualization</a></li>
+            <li><a href="projects/DataMining/matrix.png" target="_blank">Confusion Matrix</a></li>
+            <li><a href="projects/DataMining/report.pdf" target="_blank">Classification Report</a></li>
+            <li><a href="projects/DataMining/code.ipynb" target="_blank">Final Jupyter Notebook</a></li>
+          </ul>
+
+        </section>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <section id="footer">
+      <div class="container">
+        <ul class="copyright">
+          <li>&copy; 2025 Ava Weisheit. All rights reserved.</li>
+        </ul>
+      </div>
+    </section>
+
+  </body>
+</html>
