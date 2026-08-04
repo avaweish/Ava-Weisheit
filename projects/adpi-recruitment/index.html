@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>ADPi Recruitment Analytics – Ava Weisheit</title>
+  <title>ADPi Recruitment Analytics - Ava Weisheit</title>
   <meta name="description" content="Analyzed recruitment data to match potential new members with current members for optimal chapter fit and engagement." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -23,7 +23,7 @@
 
   <div class="article-hero">
     <a class="back-link" href="../../index.html#projects">← Back to portfolio</a>
-    <span class="card-meta">2025 – 2026 · Alpha Delta Pi, Beta Alpha Chapter</span>
+    <span class="card-meta">2025 - 2026 · Alpha Delta Pi, Beta Alpha Chapter</span>
     <h2>Recruitment Analyst</h2>
     <p>Analyzed recruitment data to match potential new members with current members for optimal chapter fit and engagement.</p>
   </div>
@@ -35,10 +35,10 @@
     <p>During the three-week recruitment period, I supported our chapter by analyzing member votes and matching potential new members to ensure the best fit. This project required balancing detailed data analysis with leadership responsibilities, including managing a recruitment team and coordinating with a chapter of over 100 members. Our goal was to make strategic, data-informed decisions that would strengthen the chapter's future.</p>
 
     <h3>My role</h3>
-    <p>I collected, cleaned, and analyzed recruitment data to standardize votes across members, ensuring fair evaluation of all candidates. I developed an R script to handle vote standardization and ranking — never done for our chapter before — identifying patterns of consistently high or low voting. Beyond data analysis, I led a recruitment team and managed communication with the full chapter and advisors, fostering respect, confidence, and comfort in a high-stakes environment.</p>
+    <p>I collected, cleaned, and analyzed recruitment data to standardize votes across members, ensuring fair evaluation of all candidates. I developed an R script to handle vote standardization and ranking - never done for our chapter before - identifying patterns of consistently high or low voting. Beyond data analysis, I led a recruitment team and managed communication with the full chapter and advisors, fostering respect, confidence, and comfort in a high-stakes environment.</p>
 
     <h3>Methodology: standardizing votes with z-scores</h3>
-    <p>Raw vote totals are misleading in a recruitment context — some members rate almost everyone a 9 or 10, while others are more discerning and reserve high scores for standouts. To make every member's vote comparable, I wrote an R script that re-centers each voter's scores around their own personal average and scales them by their own personal spread (a z-score). A member who consistently scores high gets pulled toward neutral, since a high score is normal for them, while a rare high score from a more critical voter carries much more weight, since it stands out against their usual pattern.</p>
+    <p>Raw vote totals are misleading in a recruitment context - some members rate almost everyone a 9 or 10, while others are more discerning and reserve high scores for standouts. To make every member's vote comparable, I wrote an R script that re-centers each voter's scores around their own personal average and scales them by their own personal spread (a z-score). A member who consistently scores high gets pulled toward neutral, since a high score is normal for them, while a rare high score from a more critical voter carries much more weight, since it stands out against their usual pattern.</p>
 
     <div class="code-block"><pre><code><span class="cm"># compute global mean and SD as a fallback for single-vote authors</span>
 global_avg &lt;- mean(df$Value, na.rm = TRUE)
@@ -70,7 +70,7 @@ df_standardized &lt;- df %&gt;%
   ) %&gt;%
   ungroup() %&gt;%
   arrange(PNM.ID)</code></pre></div>
-    <p class="code-caption">Core standardization logic from StandardizeScores.Rmd — full script linked below.</p>
+    <p class="code-caption">Core standardization logic from StandardizeScores.Rmd - full script linked below.</p>
 
     <p>The script also chains scores across multiple recruitment rounds (open invite, philanthropy, sisterhood, preference) into a single running file, labeling each round's scores separately so nothing gets overwritten as the chapter moves through the recruitment period.</p>
 
