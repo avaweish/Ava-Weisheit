@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Do NFL Combine Stats Predict Rookie WR Success? - Ava Weisheit</title>
+  <meta name="description" content="A semester-long Sport Analytics course culminating in a team project using correlation and multiple regression to test whether NFL Combine metrics predict rookie wide receiver performance." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="nav-logo" href="../../index.html">Ava Weisheit</a>
+      <ul class="nav-links">
+        <li><a href="../../index.html#about">About</a></li>
+        <li><a href="../../index.html#projects">Projects</a></li>
+        <li><a href="../../articles/index.html">Articles</a></li>
+        <li><a href="../../index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="article-hero">
+    <a class="back-link" href="../../index.html#projects">← Back to portfolio</a>
+    <span class="card-meta">Spring 2026 · SPH-M310</span>
+    <h2>Do NFL Combine Stats Predict Rookie WR Success?</h2>
+    <p>A team research project using correlation and multiple regression to test whether NFL Combine metrics actually predict a rookie wide receiver's first-year performance.</p>
+  </div>
+
+  <div class="article-body">
+    <img src="../../images/sports-analytics-header.jpeg" alt="NFL Combine and rookie wide receiver performance analysis" />
+
+    <h3>Overview</h3>
+    <p>Every spring, the NFL Combine gets treated as a preview of who's going to succeed at the next level - 40-yard dash times, vertical jumps, and shuttle drills all get read as signs of future production, especially for wide receivers. For my Sport Analytics final project, my team and I set out to actually test that assumption with data instead of taking it at face value.</p>
+    <p>We pulled three seasons of NFL Draft Combine data (2023-2025) from Pro-Football-Reference and matched each player to their rookie-season statistics, building a composite performance score (points per reception, per yard, and per touchdown) as our target variable. From there, we ran correlation analysis and a series of multiple regression models to isolate which factors actually predicted rookie WR success.</p>
+
+    <h3>My role</h3>
+    <p>I took a leadership role on this project, organizing the team and keeping everyone on track. I delegated tasks and built out a schedule so we all stayed on time, checked in regularly with my teammates, and made sure everyone felt confident and prepared on the specific parts of the analysis they were presenting. I also taught one of my teammates linear regression and multiple linear regression as concepts from the ground up - explaining it helped sharpen my own understanding of the material, and it was genuinely rewarding to watch him present those concepts confidently and clearly by the end.</p>
+
+    <h3>Key findings</h3>
+    <p>Combine metrics alone turned out to be poor predictors of rookie performance - once draft pick was removed from the model, combine stats explained almost none of the variance (R² = 0.048). Draft pick position was by far the strongest predictor in our dataset, explaining about 27% of rookie WR variance (R² = 0.279), with every spot earlier in the draft associated with roughly a 0.568-point increase in rookie score. Even so, 73% of rookie WR performance remained unexplained by anything in our dataset, pointing to factors like scheme fit, coaching, and football IQ mattering more than raw measurables.</p>
+    <p>Based on those findings, we recommended that coaches focus on personalized development plans rather than assuming Combine athleticism predicts readiness, that front offices weigh Combine metrics as a supplement to scouting rather than a primary signal, and that Combine results are most useful for evaluating later-round and undrafted talent, where less scouting information is otherwise available.</p>
+
+    <h3>What the course covered</h3>
+    <p>The final project was the capstone of a semester that built up statistical concepts week by week: starting with variables and measurement scales, moving into probability and how to interpret events versus randomness, then statistical uncertainty and what it means to quantify error in a conclusion. From there the course moved into correlation, simple linear regression, and finally multiple regression - the exact toolkit our team used to analyze the Combine data and build our models.</p>
+
+    <h3>Skills demonstrated</h3>
+    <p>
+      <span class="tag">Leadership</span>
+      <span class="tag">Team Management</span>
+      <span class="tag">Multiple Regression</span>
+      <span class="tag">Correlation Analysis</span>
+      <span class="tag">Data Cleaning</span>
+      <span class="tag">Public Speaking</span>
+    </p>
+
+    <h3>Deliverables</h3>
+    <ul>
+      <li><a href="SportAnalyticsFinalPresentation.pptx" target="_blank">Final presentation slides</a></li>
+      <li><a href="FinalReport.pdf" target="_blank">Final written report</a></li>
+    </ul>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">&copy; 2026 Ava Weisheit. All rights reserved.</div>
+  </footer>
+</body>
+</html>
