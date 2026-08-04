@@ -31,19 +31,19 @@
   </div>
 
   <div class="article-body">
-    <p>I built a decision tree to classify beer styles by their flavor attributes - bitterness, sweetness, that kind of thing - and it came out at 59% accuracy. My gut reaction was "okay, that needs fixing." My better instinct, once I actually sat with it for a bit, was to ask what that number was actually telling me instead of just trying to inflate it.</p>
+    <p>I built a decision tree to classify beer styles by their flavor attributes - bitterness, sweetness, that kind of thing - and it landed at 59% accuracy. My first reaction was that I needed to fix it. After sitting with it for a while, I realized the better question was what that number was actually telling me.</p>
 
     <h3>Accuracy isn't the whole story</h3>
-    <p>59% sounds mediocre on its own, I get it. But this was a multi-class problem across a lot of beer styles, and several of them share overlapping flavor profiles on purpose - that's kind of the point of some of these styles. The model separated IPAs and Sours pretty well, with precision above 0.65 for both, but struggled with Lambic and Porter. That's not the model being lazy. That's the model picking up on something real: those styles genuinely taste more alike than, say, an IPA and a Porter do.</p>
+    <p>59% sounds mediocre by itself. But this was a multi-class problem across a lot of beer styles, and several of them share overlapping flavor profiles by design. The model separated IPAs and Sours well, with precision above 0.65 for both, but struggled with Lambic and Porter. That's not the model failing randomly. It's picking up on something true - those styles genuinely taste more alike than an IPA and a Porter do.</p>
 
     <h3>The confusion matrix told me more than the accuracy score did</h3>
-    <p>Early on I kept fixating on the accuracy number like it was the whole point. The confusion matrix ended up being way more useful. Strong values down the diagonal for the styles that are easy to tell apart, plus a decent amount of overlap for the styles that aren't - that's a more honest picture than one summary number could ever give me. It basically said "flavor alone can't fully separate every beer category, and that's fine."</p>
+    <p>Early on I was treating the accuracy score as the main result. The confusion matrix ended up being more useful. Strong values down the diagonal for the styles that are easy to tell apart, and real overlap for the ones that aren't, gave a more honest picture than one summary number could. It confirmed that flavor attributes alone can't fully separate every beer category, and that's a real limitation, not a bug.</p>
 
-    <h3>Why I think this matters beyond beer</h3>
-    <p>This is a pattern I now notice all over the place, not just in this one project. A model's job isn't to hit some arbitrary accuracy target - it's to be honest about what the data can and can't explain. An "imperfect" model that's upfront about where a domain gets genuinely ambiguous is more useful to me than an inflated one that quietly memorized noise in the training set.</p>
+    <h3>Why this matters beyond beer</h3>
+    <p>This is a pattern I keep running into outside of this project too. A model's job isn't to hit some arbitrary accuracy target - it's to be honest about what the data can and can't explain. An imperfect model that's upfront about where a domain gets genuinely ambiguous is more useful than an inflated one that quietly memorized noise in the training set.</p>
 
     <h3>What I'd try next</h3>
-    <p>If I revisit this, I'd add features beyond taste - brewing method, ABV, regional style conventions - to help with the harder-to-separate categories. But honestly, I'd rather hand in a 59% model that's honest about its limits than a 95% one that's secretly just memorized the answers.</p>
+    <p>If I revisit this, I'd add features beyond taste - brewing method, ABV, regional style conventions - to help separate the harder categories. But I'd still rather report a 59% model that's honest about its limits than a 95% one that's just memorized the training set.</p>
 
     <p><a href="../projects/beer-classification/index.html">See the full project →</a></p>
   </div>
