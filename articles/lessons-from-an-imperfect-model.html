@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>What a 59% Accurate Model Taught Me About Good Data Science – Ava Weisheit</title>
+  <meta name="description" content="Not every model needs to be perfect to be useful — lessons from classifying beer by flavor." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="What a 59% Accurate Model Taught Me About Good Data Science" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="nav-logo" href="../index.html">Ava Weisheit</a>
+      <ul class="nav-links">
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="index.html">Articles</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="article-hero">
+    <a class="back-link" href="index.html">← Back to articles</a>
+    <div class="article-meta">August 2026 · 3 min read</div>
+    <h2>What a 59% Accurate Model Taught Me About Good Data Science</h2>
+    <p><span class="tag">Data Science</span> <span class="tag">Machine Learning</span></p>
+  </div>
+
+  <div class="article-body">
+    <p>When I built a decision tree to classify beer styles by flavor attributes, it landed at 59% accuracy. My first instinct was to see that as a problem to fix. My second, better instinct was to ask what that number was actually telling me.</p>
+
+    <h3>Accuracy isn't the whole story</h3>
+    <p>A 59% accurate model sounds mediocre in isolation. But context changes everything: this was a multi-class problem across a wide range of beer styles, several of which share overlapping flavor profiles by design. A model that separates IPA and Sour beers with precision scores above 0.65 while struggling on Lambic and Porter isn't failing randomly — it's revealing something true about how those styles actually taste.</p>
+
+    <h3>The confusion matrix is the real deliverable</h3>
+    <p>Early on, I was tempted to treat the accuracy score as the headline result. The confusion matrix ended up being more useful. Strong diagonal values for easily separable styles, paired with meaningful off-diagonal activity for overlapping ones, told a more honest story than a single summary statistic ever could: sensory attributes alone can't fully capture what distinguishes some beer categories.</p>
+
+    <h3>Why this generalizes</h3>
+    <p>This is a lesson that shows up constantly outside of beer classification. A model's job isn't to hit an arbitrary accuracy threshold — it's to be honest about what the data can and can't explain. Sometimes an "imperfect" model that surfaces where a domain is genuinely ambiguous is more valuable than an inflated one that's overfit to noise.</p>
+
+    <h3>Where I'd take it next</h3>
+    <p>Additional features beyond taste attributes — brewing method, ABV, regional style conventions — would likely improve separability for the harder categories. But I'd rather report a 59% model that tells the truth about its limits than a 95% model that's quietly memorized the training set.</p>
+
+    <p><a href="../projects/beer-classification/index.html">See the full project →</a></p>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">&copy; 2026 Ava Weisheit. All rights reserved.</div>
+  </footer>
+</body>
+</html>

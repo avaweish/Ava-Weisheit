@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ADPi Recruitment Analytics – Ava Weisheit</title>
+  <meta name="description" content="Analyzed recruitment data to match potential new members with current members for optimal chapter fit and engagement." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="nav-logo" href="../../index.html">Ava Weisheit</a>
+      <ul class="nav-links">
+        <li><a href="../../index.html#about">About</a></li>
+        <li><a href="../../index.html#projects">Projects</a></li>
+        <li><a href="../../articles/index.html">Articles</a></li>
+        <li><a href="../../index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="article-hero">
+    <a class="back-link" href="../../index.html#projects">← Back to portfolio</a>
+    <span class="card-meta">2025 – 2026 · Alpha Delta Pi, Beta Alpha Chapter</span>
+    <h2>Recruitment Analyst</h2>
+    <p>Analyzed recruitment data to match potential new members with current members for optimal chapter fit and engagement.</p>
+  </div>
+
+  <div class="article-body">
+    <img src="../../images/adpi.jpg" alt="Alpha Delta Pi recruitment" />
+
+    <h3>Overview</h3>
+    <p>During the three-week recruitment period, I supported our chapter by analyzing member votes and matching potential new members to ensure the best fit. This project required balancing detailed data analysis with leadership responsibilities, including managing a recruitment team and coordinating with a chapter of over 100 members. Our goal was to make strategic, data-informed decisions that would strengthen the chapter's future.</p>
+
+    <h3>My role</h3>
+    <p>I collected, cleaned, and analyzed recruitment data to standardize votes across members, ensuring fair evaluation of all candidates. I developed an R script to handle vote standardization and ranking — never done for our chapter before — identifying patterns of consistently high or low voting. Beyond data analysis, I led a recruitment team and managed communication with the full chapter and advisors, fostering respect, confidence, and comfort in a high-stakes environment.</p>
+
+    <h3>Methodology: standardizing votes with z-scores</h3>
+    <p>Raw vote totals are misleading in a recruitment context — some members rate almost everyone a 9 or 10, while others are more discerning and reserve high scores for standouts. To make every member's vote comparable, I wrote an R script that re-centers each voter's scores around their own personal average and scales them by their own personal spread (a z-score). A member who consistently scores high gets pulled toward neutral, since a high score is normal for them, while a rare high score from a more critical voter carries much more weight, since it stands out against their usual pattern.</p>
+
+    <div class="code-block"><pre><code><span class="cm"># compute global mean and SD as a fallback for single-vote authors</span>
+global_avg &lt;- mean(df$Value, na.rm = TRUE)
+global_sd  &lt;- sd(df$Value,   na.rm = TRUE)
+
+df_standardized &lt;- df %&gt;%
+  <span class="cm"># each voter's personal average, spread, and vote count</span>
+  group_by(Author) %&gt;%
+  mutate(
+    author_avg   = mean(Value, na.rm = TRUE),
+    author_sd    = sd(Value,   na.rm = TRUE),
+    author_votes = n()
+  ) %&gt;%
+  ungroup() %&gt;%
+
+  <span class="cm"># standardize against personal stats, falling back to the whole
+  # chapter's average/spread for single-vote or zero-spread voters</span>
+  mutate(
+    use_avg = ifelse(author_votes &gt; 1 &amp; author_sd &gt; 0, author_avg, global_avg),
+    use_sd  = ifelse(author_votes &gt; 1 &amp; author_sd &gt; 0, author_sd,  global_sd),
+    standardized_value = (Value - use_avg) / use_sd
+  ) %&gt;%
+
+  <span class="cm"># each PNM's final score is the average of everyone's standardized votes</span>
+  group_by(PNM.First.Name, PNM.Last.Name) %&gt;%
+  mutate(
+    num_votes              = n(),
+    avg_standardized_score = mean(standardized_value, na.rm = TRUE)
+  ) %&gt;%
+  ungroup() %&gt;%
+  arrange(PNM.ID)</code></pre></div>
+    <p class="code-caption">Core standardization logic from StandardizeScores.Rmd — full script linked below.</p>
+
+    <p>The script also chains scores across multiple recruitment rounds (open invite, philanthropy, sisterhood, preference) into a single running file, labeling each round's scores separately so nothing gets overwritten as the chapter moves through the recruitment period.</p>
+
+    <h3>Skills demonstrated</h3>
+    <p>
+      <span class="tag">Data Cleaning</span>
+      <span class="tag">R Programming</span>
+      <span class="tag">Statistical Standardization</span>
+      <span class="tag">Leadership</span>
+      <span class="tag">Strategic Decision Making</span>
+    </p>
+
+    <h3>Deliverables</h3>
+    <ul>
+      <li><a href="Final.html" target="_blank">R Markdown as HTML</a></li>
+      <li><a href="StandardizeScores.Rmd" target="_blank">Vote standardization script (R Markdown)</a></li>
+      <li><a href="test.merge copy.csv" target="_blank">Example CSV output</a></li>
+    </ul>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">&copy; 2026 Ava Weisheit. All rights reserved.</div>
+  </footer>
+</body>
+</html>
