@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Data Representation Coursework - Ava Weisheit</title>
+  <meta name="description" content="Coursework highlights from DSCI-D 321: Data Representation, covering signal processing, image and audio representation, time series, graphs, and core machine learning models." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="nav-logo" href="../../index.html">Ava Weisheit</a>
+      <ul class="nav-links">
+        <li><a href="../../index.html#about">About</a></li>
+        <li><a href="../../index.html#projects">Projects</a></li>
+        <li><a href="../../articles/index.html">Articles</a></li>
+        <li><a href="../../index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="article-hero">
+    <a class="back-link" href="../../index.html#projects">← Back to portfolio</a>
+    <span class="card-meta">Spring 2026 · DSCI-D 321</span>
+    <h2>Data Representation</h2>
+    <p>A semester of coursework on how data gets represented and processed - from raw signals and images to graphs, time series, and machine learning models.</p>
+  </div>
+
+  <div class="article-body">
+    <h3>Overview</h3>
+    <p>DSCI-D 321 covered how different types of data - numbers, signals, images, audio, text, graphs - get represented and transformed so they can actually be analyzed. Rather than one single project, the course built up a toolkit across several assignments, each focused on a different representation problem. This page pulls together the topics and skills that ended up being the most useful, with a few code snippets from the techniques I use most.</p>
+
+    <h3>Signal & image representation</h3>
+    <p>Worked with complex numbers and Fourier transforms to understand how signals get decomposed into frequency components, then applied that to real image and audio data - extracting spectrograms from audio files and exploring aliasing effects in image sampling.</p>
+
+    <div class="code-block"><pre><code><span class="cm"># applying a 2D Fourier transform to an image to view its frequency spectrum</span>
+imgX = scipy.fftpack.fftshift(scipy.fftpack.fft2(img_gray))
+
+plt.figure(figsize=(6, 6))
+plt.imshow(np.log(np.abs(imgX) + 1), cmap='gray')
+plt.title('2D Fourier Transform (log magnitude)')
+plt.colorbar()
+plt.show()</code></pre></div>
+
+    <h3>Time series & graph representations</h3>
+    <p>Loaded and visualized real time-series pricing data, working with datetime indexing and trend visualization, alongside representing relational data as graphs.</p>
+
+    <div class="code-block"><pre><code><span class="cm"># comparing a simple moving average against an exponential moving average</span>
+df['SMA_20'] = df['price'].rolling(window=20).mean()
+df['EMA_20'] = df['price'].ewm(span=20, adjust=False).mean()
+
+fig, ax = plt.subplots(figsize=(12, 5))
+ax.plot(df.index, df['price'], label='Price', alpha=0.5)
+ax.plot(df.index, df['SMA_20'], label='SMA (20)')
+ax.plot(df.index, df['EMA_20'], label='EMA (20)')
+ax.legend()
+ax.set_title('Price with Moving Averages')
+plt.show()</code></pre></div>
+
+    <h3>Machine learning fundamentals</h3>
+    <p>Built and compared several core ML models - KNN, logistic regression, SVM, an artificial neural network, and a convolutional neural network - including feature scaling experiments on multi-scale datasets like the Wine dataset and a customer churn dataset.</p>
+
+    <div class="code-block"><pre><code><span class="cm"># KNN accuracy before and after feature scaling</span>
+knn_raw = KNeighborsClassifier(n_neighbors=5)
+knn_raw.fit(X_train, y_train)
+acc_raw = accuracy_score(y_test, knn_raw.predict(X_test))
+
+ss = StandardScaler()
+X_train_ss = ss.fit_transform(X_train)
+X_test_ss  = ss.transform(X_test)
+
+knn_ss = KNeighborsClassifier(n_neighbors=5)
+knn_ss.fit(X_train_ss, y_train)
+acc_ss = accuracy_score(y_test, knn_ss.predict(X_test_ss))</code></pre></div>
+
+    <h3>Text & data structures</h3>
+    <p>Worked with text classification and corpus processing, plus foundational data structures and algorithms - trees, heaps, hashing - that underpin how larger datasets get organized and searched efficiently.</p>
+
+    <h3>Skills demonstrated</h3>
+    <p>
+      <span class="tag">Python</span>
+      <span class="tag">Signal Processing</span>
+      <span class="tag">Machine Learning</span>
+      <span class="tag">Neural Networks</span>
+      <span class="tag">Data Structures</span>
+      <span class="tag">Time Series Analysis</span>
+    </p>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">&copy; 2026 Ava Weisheit. All rights reserved.</div>
+  </footer>
+</body>
+</html>
